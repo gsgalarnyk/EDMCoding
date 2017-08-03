@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-3">Employee Data Management</h1>
+                    <p class="lead">A Comprehensive Directory of Employee Billable Hours</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="trainInfo">
+                <table class="table table-striped">
+                    <thead>
+                        <header id="topHead">Current Employees</header>
+                        <tr id="allTrainInfo">
+                            <th id="empName">Employee Name</th>
+                            <th id="role">Role</th>
+                            <th id="startDate">Start Date</th>
+                            <th id="monthsWorked">Months Worked</th>
+                            <th id="monthlyRate">Monthly Rate($)</th>
+                            <th id="totalBilled">Total Billed($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Chuck Simpsons</th>
+                            <td>Sargeant</td>
+                            <td>6/13/17</td>
+                            <td>2</td>
+                            <td>30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="addTrain">
+                <div class="boxes">
+                    <header id="bottomHead">Add Employee</header>
+                    <div class="input-group">
+                        <label>Employee Name</label>
+                        <input id="employeeToAdd" type="text" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label>Role</label>
+                        <input type="text" class="form-control" id="roleToAdd">
+                    </div>
+                    <div class="input-group">
+                        <label>Start Date (DD/MM/YY - ex: 01/01/12)</label>
+                        <input id="startDateToAdd" type="text" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label>Monthly Rate</label>
+                        <input id="rateToAdd" type="text" class="form-control" id="trainFreq">
+                    </div>
+                    <div id="buttonDiv">
+                        <button id="submitButton" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</html>
