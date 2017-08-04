@@ -18,7 +18,8 @@ $("#submitButton").on("click", function(event) {
     rate = $("#rateToAdd").val().trim();
     console.log(rate);
 
-    person = $("<tr>" + "<th>" + name + "</th>" + "</tr>");
+    person = $("<tr>" + "<th>" + name + "</th>" + "<td>" + role + "</td>"
+     +  "<td>" + startDate + "</td>" + "<td>" + "</td>" + "<td>" + rate + "</td>"  + "</tr>");
     $("#tableBody").append(person);
 
 });
