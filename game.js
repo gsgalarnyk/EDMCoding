@@ -1,9 +1,13 @@
 var name = "";
 var role = "";
 var rate = "";
-var startDate = "";
+
 var totalValue = 0;
 var person = "";
+var startDate = "";
+var ourFormat = "MM/DD/YYYY";
+var finalConvert = moment(startDate, ourFormat);
+
 
 var config = {
     apiKey: "AIzaSyBk4aeMmuymkDeVoCOq6SLnn7ZYS4ZDo9w",
@@ -40,25 +44,24 @@ $("#submitButton").on("click", function(event) {
     });
 
 
-   
-
-    person = $("<tr>" + "<th>" + name + "</th>" + "<td>" + role + "</td>" +
-        "<td>" + startDate + "</td>" + "<td>" + "</td>" + "<td>" + rate + "</td>" + "</tr>");
-
-    $("#tableBody").append(person);
 
 });
 
 database.ref().on("child_added", function(snapshot) {
 
-            console.log(snapshot.val().name);
-            console.log(snapshot.val().role);
-            console.log(snapshot.val().startDate);
-            console.log(snapshot.val().rate);
+    console.log(snapshot.val().name);
+    console.log(snapshot.val().role);
+    console.log(snapshot.val().startDate);
+    console.log(snapshot.val().rate);
 
-            $("#tableBody").append("<tr><th>" + snapshot.val().name +
-                " </th><td>" + snapshot.val().role +
-                " </td><td>" + snapshot.val().startDate + "</td><td> 0 " +
-                " </td><td> " + snapshot.val().rate + " </td></tr>");
+    $("#tableBody").append("<tr><th>" + snapshot.val().name +
+        " </th><td>" + snapshot.val().role +
+        " </td><td>" + snapshot.val().startDate + "</td><td>" 
+        + moment().diff(moment(snapshot.val().startDate , "MM/DD/YYYY"), "months") +
+        " </td><td> " + snapshot.val().rate + " </td></tr>");
 
-        });
+});
+console.log("----------------------")
+
+
+moment().diff(moment(finalConvert), "months");
