@@ -30,20 +30,35 @@ $("#submitButton").on("click", function(event) {
     rate = $("#rateToAdd").val().trim();
     console.log(rate);
 
-<<<<<<< HEAD
-       database.ref().set({
+
+    database.ref().push({
         name: name,
         role: role,
         startDate: startDate,
         rate: rate
-      });
+        //dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
 
 
-    person = $("<tr>" + "<th>" + name + "</th>" + "</tr>");
-=======
-    person = $("<tr>" + "<th>" + name + "</th>" + "<td>" + role + "</td>"
-     +  "<td>" + startDate + "</td>" + "<td>" + "</td>" + "<td>" + rate + "</td>"  + "</tr>");
->>>>>>> 7b5978d0db2547e841818f08c0ae5df4a0f55827
+   
+
+    person = $("<tr>" + "<th>" + name + "</th>" + "<td>" + role + "</td>" +
+        "<td>" + startDate + "</td>" + "<td>" + "</td>" + "<td>" + rate + "</td>" + "</tr>");
+
     $("#tableBody").append(person);
 
 });
+
+database.ref().on("child_added", function(snapshot) {
+
+            console.log(snapshot.val().name);
+            console.log(snapshot.val().role);
+            console.log(snapshot.val().startDate);
+            console.log(snapshot.val().rate);
+
+            $("#tableBody").append("<tr><th>" + snapshot.val().name +
+                " </th><td>" + snapshot.val().role +
+                " </td><td>" + snapshot.val().startDate + "</td><td> 0 " +
+                " </td><td> " + snapshot.val().rate + " </td></tr>");
+
+        });
