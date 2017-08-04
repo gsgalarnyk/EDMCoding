@@ -30,6 +30,7 @@ $("#submitButton").on("click", function(event) {
     rate = $("#rateToAdd").val().trim();
     console.log(rate);
 
+<<<<<<< HEAD
        database.ref().set({
         name: name,
         role: role,
@@ -39,6 +40,10 @@ $("#submitButton").on("click", function(event) {
 
 
     person = $("<tr>" + "<th>" + name + "</th>" + "</tr>");
+=======
+    person = $("<tr>" + "<th>" + name + "</th>" + "<td>" + role + "</td>"
+     +  "<td>" + startDate + "</td>" + "<td>" + "</td>" + "<td>" + rate + "</td>"  + "</tr>");
+>>>>>>> 7b5978d0db2547e841818f08c0ae5df4a0f55827
     $("#tableBody").append(person);
 
 });
